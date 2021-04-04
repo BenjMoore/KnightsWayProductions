@@ -26,29 +26,21 @@ class FlexPannels {
 			"https://images.unsplash.com/photo-1608993871699-e32b61dedd8e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=1280",
 			"https://images.unsplash.com/photo-1441936064713-d73d35f4fcb1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=1386",
 			"https://images.unsplash.com/photo-1525858628969-2c3e8d8e1b42?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=1439",
-			"https://images.unsplash.com/photo-1605264522799-1996bdbe5f72?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=2880",
-			"https://images.unsplash.com/photo-1604567222848-3a7350bf6935?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1920&q=2879",
+			
 		];
     }
     get get_sayings(){
        return [
 			"",
 			{
-				saying: "If passion drives you, let reason hold the reins.",
-				topic: "passion",
+				saying: "",
+				topic: "Knights Way Productions",
 			},
 			{
-				saying: "Discipline is the bridge between goals and accomplishment.",
-				topic: "Discipline",
+				saying: "",
+				topic: "Unfetted",
 			},
-			{
-				saying: "To lose patience is to lose the battle.",
-				topic: "patience",
-			},
-			{
-				saying: "The heart has its reasons of which reason knows nothing.",
-				topic: "love",
-			},
+		
 			"",
 		];
 

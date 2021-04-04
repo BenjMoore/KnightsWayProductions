@@ -1,0 +1,298 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    position: relative;
+    height: 100vh;
+    font-size: 30px;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  :root {
+    --skew-deg: 20deg;
+  }
+  
+  .font1 {
+    font-family: "Permanent Marker", cursive;
+  }
+  
+  .font2 {
+    font-family: "Amatic SC", cursive;
+  }
+  
+  header {
+    position: fixed;
+    z-index: 22;
+  }
+  
+  #btn {
+    display: none;
+  }
+  #btn:checked ~ .btn {
+    transform: rotate(20deg) scale(1.1);
+  }
+  #btn:checked ~ .message-wrapper {
+    pointer-events: all;
+    opacity: 1;
+  }
+  
+  .message-wrapper {
+    position: absolute;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.96);
+    display: grid;
+    place-items: center;
+    transition: opacity 200ms;
+    pointer-events: none;
+  }
+  
+  a {
+    position: relative;
+    display: inline-block;
+  }
+  a:after {
+    content: "";
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    background: white;
+    border-radius: 50%;
+    margin-left: 0.3em;
+    animation: bounce 1s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0) scale(1.15, 0.85);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  .btn {
+    position: fixed;
+    cursor: pointer;
+    display: inline-block;
+    height: 1.2em;
+    width: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-sizing: content-box;
+    margin: 0.5em;
+    transition: transform 300ms;
+  }
+  
+  .main-title {
+    text-align: center;
+    z-index: 9;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    transition: 200ms;
+    text-shadow: 0 0 10px black, 0 0 20px #000;
+    color: white;
+    font-size: 1.7em;
+    pointer-events: none;
+  }
+  
+  .panels-wrapper {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 140%;
+    margin-left: -20%;
+    min-height: 100vh;
+    background: #1f1c1c;
+  }
+  
+  .panels-wrapper:hover .main-title {
+    opacity: 0;
+  }
+  
+  .panel {
+    flex: 1;
+    transform: skewX(var(--skew-deg));
+    overflow: hidden;
+    transition: flex 300ms;
+  }
+  
+  .panel-content {
+    position: relative;
+    transform: skewX(calc(var(--skew-deg) * -1));
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .panel-content:before {
+    position: absolute;
+    content: "";
+    transform: skewX(calc(var(--skew-deg)));
+    background: #000;
+    background-image: radial-gradient(circle at center center, transparent, black), repeating-linear-gradient(270deg, black 0px, black 0px, transparent 0px, transparent 0px, black 0px, black 0px, transparent 0px, transparent 0px), repeating-linear-gradient(0deg, #71003d 0px, #71003d 0px, transparent 0px, transparent 0px), linear-gradient(225deg, black, black);
+    height: 0%;
+    width: 0%;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+  .panel-content img {
+    position: absolute;
+    height: 300%;
+    width: 300%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    transition: filter 400ms;
+  }
+  .panel-content .text-wrapper {
+    position: relative;
+    text-align: center;
+    padding: 2em;
+    transition: opacity 200ms;
+    opacity: 0;
+    z-index: 3;
+  }
+  .panel-content .text-wrapper:before {
+    content: "";
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(0deg, transparent, rgba(30, 2, 82, 0.3), transparent);
+  }
+  .panel-content .text-wrapper > * {
+    transform: translateY(30px);
+  }
+  .panel-content .title {
+    margin-bottom: 1em;
+    transition: 200ms 700ms;
+    letter-spacing: 0.3em;
+    font-size: 0.8em;
+  }
+  .panel-content .text {
+    transform: translateY(40px);
+    transition: 200ms 500ms;
+  }
+  
+  .panel:hover {
+    flex: 2.2;
+    transition: flex 300ms;
+  }
+  .panel:hover .panel-content:before {
+    opacity: 0.5;
+  }
+  .panel:hover .panel-content img {
+    filter: blur(5px);
+  }
+  .panel:hover .panel-content .text-wrapper {
+    opacity: 1;
+    transition: opacity 200ms 300ms;
+  }
+  .panel:hover .panel-content .text-wrapper > * {
+    transform: translateY(0);
+  }
+  
+  @media screen and (max-width: 700px) {
+    .main-title {
+      display: none;
+    }
+  
+    .panels-wrapper {
+      flex-direction: column;
+      width: 100%;
+      margin: 0;
+      --skew-deg: 0;
+    }
+    .panels-wrapper .text-wrapper {
+      opacity: 1;
+    }
+    .panels-wrapper .text-wrapper > * {
+      transform: translateY(0);
+    }
+    .panels-wrapper img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .panels-wrapper .panel:nth-of-type(0) {
+    background-color: red;
+  }
+  
+  .panels-wrapper .panel:nth-of-type(1) {
+    background-color: #e60000;
+  }
+  
+  .panels-wrapper .panel:nth-of-type(2) {
+    background-color: #cc0000;
+  }
+  
+  .panels-wrapper .panel:nth-of-type(3) {
+    background-color: #b30000;
+  }
+  
+  .panels-wrapper .panel:nth-of-type(4) {
+    background-color: #990000;
+  }
+  
+  .panels-wrapper .panel:nth-of-type(5) {
+    background-color: maroon;
+  }
+  
+  .panels-wrapper .panel:nth-of-type(6) {
+    background-color: #660000;
+  }
+  
+  .panels-wrapper .panel:first-of-type, .panels-wrapper .panel:last-of-type {
+    background: black;
+    pointer-events: none;
+  }
+  .panels-wrapper .panel:first-of-type img, .panels-wrapper .panel:last-of-type img {
+    opacity: 0.4;
+  }
+  
+  .loader {
+    z-index: 99;
+    position: absolute;
+    transition: 3000ms;
+  }
+  .loader:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vmax;
+    width: 100vmax;
+    margin-left: auto;
+    background: black;
+    z-index: -1;
+  }
+  
+  .panel.dont-touch {
+    pointer-events: none;
+  }
+  
+  .loader.hide {
+    opacity: 0;
+  }
+  .loader.hide > * {
+    transition: 200ms;
+    opacity: 0;
+  }
