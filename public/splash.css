@@ -9,7 +9,7 @@ html, body {
 
 body {
   font-family: "Lato", sans-serif;
-  background: rgb(116, 40, 40);
+  background-color: #983f3f;
   padding: 40px 40px;
   animation: fade-in 3s ease-in-out forwards;
 }
